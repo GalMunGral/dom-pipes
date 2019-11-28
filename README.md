@@ -11,6 +11,7 @@ interface ChildrenMap {
 interface InputMap {
   [name: string]: Observable<any>
 }
+
 interface OutputMap {
   [name: string]: Subscriber<any>
 }
