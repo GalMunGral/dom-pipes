@@ -5,12 +5,12 @@ export default class EnhancedInput extends Pipe {
   constructor() {
     super('enhanced-input', ['wrapper'], {
       raw: new Input().style({
-        'border': 'none',
-        'outline': 'none',
-        'padding': '5px',
-        'width': '100%',
-        'font-size': '1rem'
-      })
+        border: 'none',
+        outline: 'none',
+        padding: '5px',
+        width: '100%',
+        'font-size': '1rem',
+      }),
     });
   }
 

@@ -20,21 +20,24 @@ export default class Pipe {
 
   public output: OutputMap;
 
+
   constructor(type: string, classes?: string[], children?: ChildrenMap) {
     this.element = document.createElement(type);
     if (classes && classes.length > 0) this.class(...classes);
     if (children) this.add(children);
   }
-  
+
+  protected connect(): any { return this; }
+
   class(...classes) {
     this.element.classList.add(...classes);
     return this;
   }
 
   style(styleMap: {[name: string]: string}) {
-    for (let [name, value] of Object.entries(styleMap)) {
+    Object.entries(styleMap).forEach(([name, value]) => {
       this.element.style[name] = value;
-    }
+    });
     return this;
   }
 

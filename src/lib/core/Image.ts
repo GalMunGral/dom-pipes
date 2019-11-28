@@ -1,5 +1,5 @@
-import Pipe, { ChildrenMap } from '../Pipe';
 import { Subscriber } from 'rxjs';
+import Pipe, { ChildrenMap } from '../Pipe';
 
 export default class Image extends Pipe {
   constructor(src?: string, classes?: string[], children?: ChildrenMap) {
@@ -10,6 +10,6 @@ export default class Image extends Pipe {
   output = {
     src: new Subscriber((newSrc: string) => {
       (this.element as HTMLImageElement).src = newSrc;
-    })
+    }),
   };
 }
