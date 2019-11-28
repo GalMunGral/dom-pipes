@@ -8,10 +8,10 @@ interface ChildrenMap {
   [name: string]: Pipe
 }
 
-InputMap {
+interface InputMap {
   [name: string]: Observable<any>
 }
-OutputMap {
+interface OutputMap {
   [name: string]: Subscriber<any>
 }
 
