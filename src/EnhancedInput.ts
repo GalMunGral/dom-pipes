@@ -19,9 +19,7 @@ export default class EnhancedInput extends Pipe {
     return this;
   }
 
-  get input() {
-    return {
-      input: this.children.raw.input.input,
-    };
-  }
+  input = {
+    input: this.children.raw.input.input,
+  };
 }

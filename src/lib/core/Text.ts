@@ -6,11 +6,9 @@ export default class Text extends Pipe {
     super('p');
   }
 
-  get output() {
-    return {
-      text: new Subscriber((text: string) => {
-        this.element.innerHTML = text;
-      }),
-    };
-  }
+  output = {
+    text: new Subscriber((text: string) => {
+      this.element.innerHTML = text;
+    }),
+  };
 }

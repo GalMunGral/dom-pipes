@@ -20,13 +20,12 @@ export default class Pipe {
 
   public output: OutputMap;
 
-
   constructor(type: string, classes?: string[], children?: ChildrenMap) {
     this.element = document.createElement(type);
     if (classes && classes.length > 0) this.class(...classes);
     if (children) this.add(children);
   }
-
+  
   class(...classes) {
     this.element.classList.add(...classes);
     return this;

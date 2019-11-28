@@ -4,22 +4,18 @@ export default class Div extends Pipe {
   constructor(classes: string[], children: ChildrenMap) {
     super('pipe', classes, children);
   }
+  
+  input = Object.assign(
+    {},
+    ...Object.values(this.children).map(c => {
+      return c.input;
+    })
+  );
 
-  get input() {
-    return Object.assign(
-      {},
-      ...Object.values(this.children).map(c => {
-        return c.input;
-      })
-    )
-  }
-
-  get output() {
-    return Object.assign(
-      {},
-      ...Object.values(this.children).map(c => {
-        return c.output;
-      })
-    )
-  }
+  output = Object.assign(
+    {},
+    ...Object.values(this.children).map(c => {
+      return c.output;
+    })
+  );
 }

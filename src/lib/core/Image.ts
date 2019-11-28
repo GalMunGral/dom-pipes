@@ -7,11 +7,9 @@ export default class Image extends Pipe {
     if (src) (this.element as HTMLImageElement).src = src;
   }
 
-  get output() {
-    return {
-      src: new Subscriber((newSrc: string) => {
-        (this.element as HTMLImageElement).src = newSrc;
-      })
-    }
-  }
+  output = {
+    src: new Subscriber((newSrc: string) => {
+      (this.element as HTMLImageElement).src = newSrc;
+    })
+  };
 }

@@ -33,12 +33,18 @@ export default class App extends Pipe {
     this.plug();
   }
 
-  plug() {
-    const textInput = this.children.div.input.input;
-    const textDisplay = this.children.div.output.text;
-    const imageSrc = this.children.div.output.src;
+  input = {
+    textInput: this.children.div.input.input
+  }
 
-    const json$ = textInput.pipe(
+  output = {
+    textDisplay: this.children.div.output.text,
+    imageSrc: this.children.div.output.src
+  }
+
+
+  plug() {
+    const json$ = this.input.textInput.pipe(
       switchMap(s => fetch('https://yesno.wtf/api')),
       switchMap(res => res.json()),
       share()
@@ -46,14 +52,14 @@ export default class App extends Pipe {
 
     json$.pipe(
       map(json => json.image)
-    ).subscribe(imageSrc);
+    ).subscribe(this.output.imageSrc);
     
-    const truncatedInput = textInput.pipe(
+    const truncatedInput = this.input.textInput.pipe(
       map(t => (t.length > 10 ? '...' : '')+ t.slice(-10))
     );
 
     combineLatest(truncatedInput, json$).pipe(
       map(([text, json]) => `${text} : ${json.answer.padEnd(3, ' ').replace(/\s/g,'&nbsp;')}`)
-    ).subscribe(textDisplay);
+    ).subscribe(this.output.textDisplay);
   }
 }

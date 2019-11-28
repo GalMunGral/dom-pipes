@@ -7,11 +7,9 @@ export default class Input extends Pipe {
     super('input');
   }
 
-  get input() {
-    return {
-      input: fromEvent(this.element, 'input').pipe(
-        map((e) => (e.target as HTMLInputElement).value),
-      ),
-    };
-  }
+  input = {
+    input: fromEvent(this.element, 'input').pipe(
+      map((e) => (e.target as HTMLInputElement).value),
+    ),
+  };
 }
