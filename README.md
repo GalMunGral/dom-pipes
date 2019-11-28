@@ -1,5 +1,7 @@
 # dom-pipes
-An idea for a rxjs-based front-end framework
+An idea for a rxjs-based front-end framework where each component does two things:
+  - combines inputs/outputs of its children into its own inputs/outputs
+  - [optional] pipes some input into some output
 
 Run `npm run dev`
 
